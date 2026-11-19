@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10251f">
+  <meta name="description" content="Ein ruhiger, privater Moment zum Innehalten und neue Unterstützung finden.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>Ein Moment für mich</title>
+  <style>
+    :root{color-scheme:dark;--bg:#10251f;--panel:#19352d;--mint:#b7f0d1;--text:#f3f7f3;--muted:#bdccc3;--line:#355448}
+    *{box-sizing:border-box}body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 50% -15%,#315a48 0,transparent 55%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;justify-content:center;padding:env(safe-area-inset-top) 18px env(safe-area-inset-bottom)}
+    main{width:min(100%,560px);padding:36px 0 30px}.mark{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);font-weight:700}.intro{margin:22px 0}.eyebrow{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--mint);font-weight:700;margin-bottom:7px}h1{font-size:clamp(2rem,9vw,3rem);line-height:1.08;letter-spacing:-.04em;margin:0 0 14px}p{margin:0;color:var(--muted)}
+    .card{background:color-mix(in srgb,var(--panel) 92%,transparent);border:1px solid var(--line);border-radius:24px;padding:24px;margin:14px 0;box-shadow:0 16px 48px #07151055}.prompt{font-size:1.28rem;line-height:1.4;color:var(--text);min-height:90px;display:flex;align-items:center}
+    button{font:inherit;color:#11291f;background:var(--mint);border:0;border-radius:16px;padding:16px 20px;font-weight:750;cursor:pointer;min-height:54px}button:focus-visible,input:focus-visible{outline:3px solid white;outline-offset:3px}.big{width:100%;font-size:1.1rem}.secondary{color:var(--text);background:#28463b;border:1px solid #456658}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px}.tools button{font-size:.93rem;padding:12px 14px;min-height:46px}.status{font-size:.9rem;color:var(--muted);min-height:1.5em;margin-top:12px}.hidden{display:none}.small{font-size:.92rem}.section-title{font-size:1.05rem;margin:0 0 12px;color:var(--text)}.checkin{display:flex;align-items:center;gap:12px}.checkin input{width:22px;height:22px;accent-color:#a8edc6}footer{text-align:center;font-size:.82rem;color:#93aaa0;margin:24px 4px}.reminder-options{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}.install-steps{padding-left:20px;color:var(--muted);margin:10px 0 0}.install-steps li{padding:3px 0}details>summary::marker{color:var(--mint)}details[open]>summary{margin-bottom:12px}
+    @media(min-width:520px){main{padding-top:52px}.card{padding:28px}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="mark">Ein Moment für mich</div>
+  <header class="intro"><div class="eyebrow">Dein privater Check-in</div><h1>Ein Moment nach dem anderen.</h1><p>Wenn gerade ein Drang auftaucht, findest du hier eine kurze Pause und Unterstützung.</p></header>
+  <section class="card" aria-labelledby="urge-title">
+    <h2 id="urge-title" class="section-title">Was brauchst du gerade?</h2>
+    <p class="prompt" id="quote" aria-live="polite">Du bestimmst, was du jetzt tust. Triff die Entscheidung, auf die du morgen stolz bist.</p>
+    <button class="big" id="urge">Ich spüre gerade einen Drang</button>
+    <div class="actions"><button class="secondary" id="breathe">Atempause · 30 Sek.</button><button class="secondary" id="reset">Neuer Impuls</button></div>
+    <p class="status" id="timer" aria-live="polite"></p>
+  </section>
+  <details class="card">
+    <summary class="section-title" style="cursor:pointer">Erinnerungen einrichten</summary>
+    <p class="small">Erinnert dich gelegentlich ans Innehalten, solange diese Seite geöffnet ist.</p>
+    <div class="tools"><label class="checkin"><input type="checkbox" id="reminders"> <span>Erinnerungen einschalten</span></label></div>
+    <div class="reminder-options"><label for="interval" class="small">Abstand</label><select id="interval" aria-label="Abstand zwischen Erinnerungen" style="font:inherit;color:var(--text);background:#28463b;border:1px solid #456658;border-radius:10px;padding:9px"><option value="30">30 Minuten</option><option value="60" selected>1 Stunde</option><option value="120">2 Stunden</option><option value="240">4 Stunden</option></select><button class="secondary" id="notify">Mitteilung erlauben</button></div>
+    <p class="status" id="reminderStatus" aria-live="polite"></p>
+  </details>
+  <details class="card">
+    <summary class="section-title" style="cursor:pointer">Auf meinem iPhone installieren</summary>
+    <p class="small">Sobald du die App über ihren Weblink geöffnet hast:</p>
+    <ol class="install-steps"><li>Öffne den Link in <strong>Safari</strong>.</li><li>Tippe unten auf das <strong>Teilen-Symbol</strong> (Quadrat mit Pfeil nach oben). Falls es nicht sichtbar ist, tippe einmal auf die Seite.</li><li>Scrolle im Teilen-Menü nach unten und tippe auf <strong>Zum Home-Bildschirm</strong>.</li><li>Tippe oben rechts auf <strong>Hinzufügen</strong>. Das App-Symbol erscheint auf deinem Home-Bildschirm.</li></ol>
+  </details>
+  <footer>Privat und kostenlos · Kein Konto · Deine Eingaben bleiben auf diesem Gerät</footer>
+</main>
+<script>
+  const quotes=["Du bestimmst, was du jetzt tust. Triff die Entscheidung, auf die du morgen stolz bist.","Der Drang gibt keine Befehle. Du hast die Kontrolle über deinen nächsten Schritt.","Steh auf. Leg das Handy weg. Wechsel jetzt den Raum. Mach es konkret.","Du hast dir ein Ziel gesetzt. Halte heute daran fest – ein Moment nach dem anderen.","Warte zehn Minuten, bevor du entscheidest. Geh raus, beweg dich, komm wieder klar.","Disziplin entsteht genau in solchen Momenten. Zeig dir, dass du es ernst meinst.","Du musst nicht auf Motivation warten. Fang mit dem nächsten richtigen Schritt an.","Du bist stärker als eine Gewohnheit. Unterbrich den Ablauf jetzt.","Kein Verhandeln mit dem Drang: Atmen, aufstehen, etwas anderes tun.","Dieser Moment ist eine Gelegenheit, dein Wort an dich selbst zu halten."];
+  const quote=document.querySelector('#quote');let last=-1;
+  function nextQuote(){let n;do{n=Math.floor(Math.random()*quotes.length)}while(n===last);last=n;quote.textContent=quotes[n]}
+  document.querySelector('#urge').addEventListener('click',nextQuote);document.querySelector('#reset').addEventListener('click',nextQuote);
+  let countdown;
+  document.querySelector('#breathe').addEventListener('click',()=>{clearInterval(countdown);let n=30;const out=document.querySelector('#timer');out.textContent=`Atme langsam aus … ${n} Sekunden`;countdown=setInterval(()=>{n--;out.textContent=n?`Atme langsam aus … ${n} Sekunden`:'Gut gemacht. Wie möchtest du jetzt weitermachen?';if(n<=0)clearInterval(countdown)},1000)});
+  const reminders=document.querySelector('#reminders'),interval=document.querySelector('#interval'),reminderStatus=document.querySelector('#reminderStatus');let reminderTimer;
+  async function askNotification(){if(!('Notification'in window)){reminderStatus.textContent='Mitteilungen werden von diesem Browser nicht unterstützt.';return}let p=Notification.permission;if(p==='default')p=await Notification.requestPermission();reminderStatus.textContent=p==='granted'?'Mitteilungen sind erlaubt.':'Mitteilungen wurden nicht erlaubt. Die Erinnerung erscheint in der App.'}
+  document.querySelector('#notify').addEventListener('click',askNotification);
+  function startReminders(){clearInterval(reminderTimer);if(!reminders.checked){reminderStatus.textContent='Erinnerungen sind ausgeschaltet.';return}const ms=Number(interval.value)*60000;reminderStatus.textContent='Erinnerungen sind an, solange die App geöffnet ist.';reminderTimer=setInterval(()=>{const msg='Kurzer Check-in: Was brauchst du gerade?';if('Notification'in window&&Notification.permission==='granted'&&document.hidden)new Notification('Ein Moment für mich',{body:msg,icon:'icon.svg'});else{reminderStatus.textContent=msg;document.title='Kurzer Check-in · Ein Moment für mich';setTimeout(()=>document.title='Ein Moment für mich',7000)}},ms)}
+  reminders.addEventListener('change',startReminders);interval.addEventListener('change',()=>{if(reminders.checked)startReminders()});
+  if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body>
+</html>
